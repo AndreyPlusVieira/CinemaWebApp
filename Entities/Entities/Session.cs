@@ -1,6 +1,6 @@
 ﻿namespace Entities.Entities
 {
-    public class Session : Notifies
+    public class Session
     {
         public int Id { get; set; }
 

@@ -1,6 +1,6 @@
 ﻿namespace Entities.Entities
 {
-    public class Movie : Notifies
+    public class Movie
     {
         public int Id { get; set; }
 
