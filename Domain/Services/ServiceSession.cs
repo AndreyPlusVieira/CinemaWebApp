@@ -24,7 +24,6 @@ namespace Domain.Services
             return session;
         }
 
-
         public async Task<Session> AddSession(Session session)
         {
             var movie = await _IMovie.GetEntityById(session.MovieId);

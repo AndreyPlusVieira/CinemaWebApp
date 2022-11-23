@@ -146,8 +146,6 @@ app.UseStaticFiles(new StaticFileOptions()
     RequestPath = new PathString("/resources")
 });
 
-
-
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

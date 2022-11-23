@@ -19,7 +19,6 @@ public class ServiceSessionTest
 
         _ServiceSession = new ServiceSession(_ISession, _IMovie);
     }
-
     [Fact]
     public async Task GetSession_WhithValidId_ReturnsSession()
     {
@@ -109,7 +108,7 @@ public class ServiceSessionTest
 
         Assert.Equal(results, session);
     }
-    
+
     [Fact]
     public async Task AddSession_WhithNullRequest_ReturnsNull()
     {
