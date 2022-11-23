@@ -21,7 +21,7 @@ namespace Domain.Services
             }
 
             var title = await _IMovie.GetMovieTitle(movie);
-            if (movie.Title == title)
+            if (movie.Title.ToLower().Trim() == title.ToLower().Trim())
                 return null;
 
             await _IMovie.Add(movie);
@@ -66,7 +66,7 @@ namespace Domain.Services
             var movieSearch = _IMovie.GetEntityById(id).Result;
             var title = await _IMovie.GetMovieTitle(movie);
 
-            if (movie.Title == title && movieSearch.Title != title)
+            if (movie.Title.ToLower().Trim() == title.ToLower().Trim() && movieSearch.Title.ToLower().Trim() != title.ToLower().Trim())
                 return null;
 
             movie.Id = id;

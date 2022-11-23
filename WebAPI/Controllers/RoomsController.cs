@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
 
         [Authorize]
         [HttpGet("/api/get-rooms/{id:int}")]
-        public async Task<IResult> GetsessionById(int id)
+        public async Task<IResult> GetRoomsById(int id)
         {
             var rooms = await _IRooms.GetEntityById(id);
             var roomsMap = _IMapper.Map<RoomsViewModel>(rooms);
@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
 
         [Authorize]
         [HttpGet("/api/get-rooms-all")]
-        public async Task<IResult> GetAllsession()
+        public async Task<IResult> GetAllRooms()
         {
             var rooms = await _IRooms.List();
             var roomsMap = _IMapper.Map<List<RoomsViewModel>>(rooms);
