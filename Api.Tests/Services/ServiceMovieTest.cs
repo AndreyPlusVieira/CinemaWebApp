@@ -51,6 +51,40 @@ public class ServiceMovieTest
     }
 
     [Fact]
+    public async Task AddMovie_WhithRepeatedTitleUpperCase_Returnsnull()
+    {
+        // Arrange
+        var movie = new Movie(2, "Title", "Description", "image", 120, true);
+        var movieTwo = new Movie(2, "title", "Description", "image", 120, true);
+
+        _Imovie.GetMovieTitle(movie).Returns(movieTwo.Title);
+        _Imovie.Add(movie).Returns(Task.FromResult(movie));
+
+        // Act
+        var result = await _serviceMovie.AddMovie(movie);
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public async Task AddMovie_WhithRepeatedTitleSpaceBetweenWords_Returnsnull()
+    {
+        // Arrange
+        var movie = new Movie(2, "Title One", "Description", "image", 120, true);
+        var movieTwo = new Movie(2, "title one", "Description", "image", 120, true);
+
+        _Imovie.GetMovieTitle(movie).Returns(movieTwo.Title);
+        _Imovie.Add(movie).Returns(Task.FromResult(movie));
+
+        // Act
+        var result = await _serviceMovie.AddMovie(movie);
+
+        // Assert
+        Assert.Null(result);
+    }
+
+    [Fact]
     public async Task RemoveMovie_WhithValidId_ReturnsMovie()
     {
         // Arrange
@@ -102,7 +136,7 @@ public class ServiceMovieTest
 
         _Imovie.Update(movie).Returns(Task.FromResult(movie));
 
-        
+
 
         // Act
         var result = await _serviceMovie.UpdateMovie(movie, id);
@@ -110,6 +144,29 @@ public class ServiceMovieTest
         // Assert
         Assert.Null(result);
     }
+
+    [Fact]
+    public async Task UpdateMovie_WhithRepeatedTitleUpperCase_ReturnsNull()
+    {
+        // Arrange
+        var movie = new Movie(2, "Title Two", "Description", "image", 120, true);
+
+        var id = 3;
+
+        _Imovie.GetEntityById(id).Returns(_movie);
+        _Imovie.GetMovieTitle(movie).Returns("title two");
+
+        _Imovie.Update(movie).Returns(Task.FromResult(movie));
+
+
+
+        // Act
+        var result = await _serviceMovie.UpdateMovie(movie, id);
+
+        // Assert
+        Assert.Null(result);
+    }
+
 
     [Fact]
     public async Task GetMovie_WhithValidId_ReturnsMovie()
