@@ -1,0 +1,18 @@
+<div class="header-base">
+  <div class="container">
+    <div class="image-logo">
+      <a routerLink="/home"><img src="../../../assets/Images/PRINTCINE.png" alt="Logo print cinema"></a>
+    </div>
+    <div>
+      <nav>
+        <ul class="nav-list">
+          <li><a routerLink="/movies"><img src="../../../assets/Icons/movie-film-svgrepo-com.svg" alt=""> Filmes</a></li>
+          <li><a routerLink="/rooms"><img src="../../../assets/Icons/cinema-svgrepo-com.svg" alt=""> Salas</a></li>
+          <li><a routerLink="/sessions"><img src="../../../assets/Icons/movie-clapper-svgrepo-com.svg" alt=""> Sessões</a></li>
+          <li *ngIf="token() === false"><a routerLink="/login"><img src="../../../assets/Icons/login-line-svgrepo-com.svg" alt=""> Login</a></li>
+          <li><button (click)="logout()" *ngIf="token()"><img src="../../../assets/Icons/logout-line.svg" alt="">Logout</button></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

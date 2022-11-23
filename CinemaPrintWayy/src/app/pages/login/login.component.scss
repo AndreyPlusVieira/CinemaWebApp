@@ -1,0 +1,128 @@
+@import "../../../styles.scss";
+
+.body-login {
+  display: flex;
+  justify-content: center;
+
+  .container-login {
+    width: 1000px;
+    height: 660px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    margin-top: 100px;
+
+    .container-login-img {
+      background-color: var(--yellow);
+      border-radius: 100px 0 0 100px;
+
+      img {
+        margin: 20% auto;
+        display: block;
+        width: 300px;
+        object-fit: cover;
+      }
+    }
+
+    .container-login-forms {
+      background-color: #9ccaff;
+      border-radius: 0 100px 100px 0;
+
+      h2 {
+        font-family: poppins;
+        font-size: torem(20);
+        color: var(--white);
+        margin-left: 40px;
+        margin-top: 60px;
+      }
+
+      h1 {
+        font-family: poppins;
+        font-size: torem(45);
+        color: var(--white);
+        text-align: center;
+        margin-top: 90px;
+      }
+
+      input {
+        display: block;
+        background-color: var(--white);
+        padding: 10px;
+        width: 300px;
+        border-radius: 5px;
+        margin: 40px auto;
+      }
+
+      input::placeholder {
+        color: var(--blue);
+        font-family: poppins;
+      }
+
+      input:focus {
+        outline: none !important;
+        border: 1px solid var(--blue);
+        box-shadow: 0 0 10px var(--background);
+      }
+
+      .buttons-login {
+        display: grid;
+        justify-content: center;
+        text-align: center;
+
+        .voltar {
+          color: var(--blue);
+          font-size: torem(12);
+          margin-top: 10px;
+        }
+        .login-entry {
+          background-color: var(--blue);
+          font-size: torem(18);
+          font-family: poppins;
+          color: var(--white);
+          padding: 10px 50px;
+          border-radius: 80px;
+          margin-bottom: 20px;
+        }
+        .login-registrar {
+          color: var(--white);
+          font-size: torem(14);
+          font-family: poppins;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 950px) {
+  .container-login {
+    max-width: 600px;
+    display: grid;
+    justify-items: center;
+    margin: 50px auto !important;
+
+    grid-template-columns: 1fr !important;
+
+    .container-login-img {
+      display: none;
+    }
+
+    .container-login-forms {
+      max-width: 500px;
+      border-radius: 50px !important;
+
+      width: 700px;
+    }
+  }
+}
+
+body {
+  background-color: var(--blue);
+}
+
+@media (max-width: 600px) {
+  .container-login {
+    max-width: 390px !important;
+  }
+  .container-login-forms {
+    max-width: 350px !important;
+  }
+}

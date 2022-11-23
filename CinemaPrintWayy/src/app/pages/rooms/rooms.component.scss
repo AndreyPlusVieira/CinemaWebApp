@@ -1,0 +1,58 @@
+@import "../../../styles.scss";
+
+.sub-header {
+  height: 60px;
+  background-color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: torem(40);
+    color: var(--black);
+    font-weight: 600;
+  }
+}
+.container {
+  display: flex;
+  justify-content: center;
+  .card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 30px;
+    justify-content: center;
+    margin: 65px 0;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+    width: 600px;
+
+    .table-rooms {
+      border-collapse: collapse;
+      margin: 25px 0;
+      width: 600px;
+
+      thead tr {
+        background-color: var(--yellow);
+        color: var(--black);
+        text-align: center;
+        font-weight: bold;
+        font-family: roboto;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        vertical-align: middle;
+        text-align: center;
+      }
+
+      tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+
+      td {
+        color: var(--black);
+        padding: 8px 15px;
+      }
+    }
+  }
+}

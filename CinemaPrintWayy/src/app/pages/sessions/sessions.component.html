@@ -1,0 +1,46 @@
+<div class="sub-header">
+  <h2>SESSÕES</h2>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="buttons">
+      <div class="search">
+        <input type="text" placeholder="Buscar" [(ngModel)]="filterList" name="filterList">
+      </div>
+      <div class="new">
+        <button> <a routerLink="/new-session">Novo</a></button>
+      </div>
+    </div>
+    <table class="table-session">
+      <thead>
+        <tr>
+          <th>Título</th>
+          <th>Data</th>
+          <th>Inicio</th>
+          <th>Termino</th>
+          <th>Valor</th>
+          <th>Animação</th>
+          <th>Audio</th>
+          <th>Sala</th>
+          <!-- <th>Editar</th> -->
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let session of filterSession ">
+          <td>{{session.movieId}}</td>
+          <td>{{session.startTime | date:'dd/MM/yyyy'}}</td>
+          <td>{{session.startTime | date:'HH:mm'}}</td>
+          <td>{{session.endTIme | date:'HH:mm'}}</td>
+          <td>{{session.entryValue}}</td>
+          <td>{{session.animationType}}</td>
+          <td>{{session.audioType}}</td>
+          <td>{{session.roomsId}}</td>
+          <!-- <td align="center"><a routerLink="/update-session/{{session.id}}"><img src="../../../assets/Icons/edit-svgrepo-com.svg" alt=""></a></td> -->
+          <td align="center"><button (click)="deleteSession(session.id)"><img src="../../../assets/Icons/delete-svgrepo-com.svg" alt=""></button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

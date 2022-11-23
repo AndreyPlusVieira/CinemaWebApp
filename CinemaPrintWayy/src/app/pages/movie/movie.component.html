@@ -1,0 +1,53 @@
+<div class="sub-header">
+  <h2>FILME</h2>
+</div>
+
+
+<div class="container">
+  <div class="card">
+    <div class="card-img">
+      <input type="file" #file (change)="onFileChange($event)" style="display:none;">
+      <img [src]="imageURl" (click)="file.click()">
+    </div>
+    <div class="card-information">
+      <p class="id">{{request?.id}}</p>
+      <h2>{{request?.title}}</h2>
+      <p>{{request?.description}}</p>
+      <p class="duration">{{request?.duration}}min</p>
+      <div class="card-information-buttons">
+        <a routerLink="/update-movie/{{request?.id}}">Atualizar</a>
+        <a routerLink="/movies">Voltar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card-session">
+
+    <table class="table-session">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Inicio</th>
+          <th>Termino</th>
+          <th>Valor</th>
+          <th>Animação</th>
+          <th>Audio</th>
+          <th>Sala</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let Session of responseSessions?.value">
+          <td>{{Session?.startTime | date:'shortDate'}}</td>
+          <td>{{Session?.startTime | date:'shortTime'}}</td>
+          <td>{{Session?.endTIme | date:'shortTime'}}</td>
+          <td>{{Session?.entryValue}}</td>
+          <td>{{Session?.animationType}}</td>
+          <td>{{Session?.audioType}}</td>
+          <td>Sala {{Session?.roomsId}} </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

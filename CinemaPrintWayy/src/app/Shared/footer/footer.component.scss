@@ -1,0 +1,57 @@
+@import "../../../styles.scss";
+
+.footer {
+  background-color: var(--blue);
+  height: 300px;
+  width: 100vw;
+
+  .container {
+    width: 900px;
+
+    .footer-division {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      text-align: center;
+      height: 300px;
+      gap: 50px;
+      align-items: center;
+      color: var(--white);
+
+      .footer-first {
+        display: flexbox;
+        align-items: center;
+        font-style: italic;
+        h3 {
+          font-weight: 600;
+          color: var(--yellow);
+        }
+      }
+      .footer-second {
+        display: flexbox;
+
+        h3 {
+          font-weight: 600;
+          color: var(--yellow);
+        }
+
+        p {
+          font-style: italic;
+          margin-bottom: 10px;
+        }
+
+        a {
+          color: var(--white);
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+.footer-bottom {
+  background-color: var(--yellow);
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

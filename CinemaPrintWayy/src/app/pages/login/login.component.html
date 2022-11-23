@@ -1,0 +1,30 @@
+<div class="body-login">
+  <form>
+
+    <div class="container-login">
+      <div class="container-login-img">
+        <img src="../../../assets/Images/PopCorn.png" alt="">
+      </div>
+      <div class="container-login-forms">
+        <h2>BEM VINDO DE VOLTA</h2>
+        <h1>LOGIN</h1>
+        <form [formGroup]="form">
+          <input type="text" formControlName="email" placeholder="Email">
+          <input type="password" formControlName="senha" placeholder="Senha">
+
+        </form>
+
+
+        <div class="buttons-login">
+          <button *ngIf="token(); else tokenNotTrue" class="login-entry" (click)="logout()">LOGOUT</button>
+          <ng-template #tokenNotTrue>
+            <button class="login-entry" (click)="submit()">ENTRAR</button>
+          </ng-template>
+          <a class="login-registrar" routerLink="/home">VOLTAR</a>
+
+        </div>
+      </div>
+    </div>
+  </form>
+
+</div>

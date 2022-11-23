@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./Config-scss/Reset.scss";
+@import "./Config-scss/Variables.scss";
+@import "./Config-scss/To-rem.scss";
+@import "./Config-scss/General.scss";
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: var(--background);
+}

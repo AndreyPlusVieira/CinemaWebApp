@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <div class="container form">
+    <div class="form-individual title">
+      <label>Titulo</label>
+      <input type="text" formControlName="Title" [(ngModel)]="request.title">
+    </div>
+    <div class="form-individual description">
+      <label>Descrição</label>
+      <input type="text" formControlName="Description" [(ngModel)]="request.description">
+    </div>
+    <div class="form-individual duration">
+      <label>Duração</label>
+      <input type="number" formControlName="Duration" [(ngModel)]="request.duration">
+    </div>
+
+    <button routerLink="/movie/{{id}}" (click)="update()">ATUALIZAR</button>
+
+    <a routerLink="/movie/{{id}}" class="back ">Voltar</a>
+  </div>
+</form>

@@ -1,0 +1,38 @@
+<div class="sub-header">
+  <h2>FILMES</h2>
+</div>
+<div class="container">
+  <div class="card">
+    <div class="buttons">
+      <div class="search">
+        <input type="text" placeholder="Buscar" [(ngModel)]="filterList" name="filterList">
+      </div>
+      <div class="new">
+        <button> <a routerLink="/new-movie">Novo</a></button>
+      </div>
+    </div>
+    <table class="table-movie">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Título</th>
+          <th>Descrição</th>
+          <th>Duração</th>
+          <th>Editar</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of filterMovie ">
+          <td>{{movie.id}}</td>
+          <td>{{movie.title}}</td>
+          <td>{{movie.description}}</td>
+          <td>{{movie.duration}} min</td>
+          <td align="center"><a routerLink="/movie/{{movie.id}}"><img src="../../../assets/Icons/edit-svgrepo-com.svg" alt=""></a></td>
+          <td align="center"><button (click)="deleteMovie(movie.id)"><img src="../../../assets/Icons/delete-svgrepo-com.svg" alt=""></button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>

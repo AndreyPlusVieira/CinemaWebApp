@@ -1,0 +1,72 @@
+@import "../../../styles.scss";
+
+.back {
+  color: var(--escuro);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 40px;
+  margin-bottom: 10px;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  background-color: var(--white);
+  padding: 35px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.15);
+
+  .form-individual {
+    display: grid;
+    margin: 15px;
+
+    label {
+      color: var(--black);
+      font-size: torem(18);
+      font-family: poppins;
+      margin-bottom: 10px;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      background-color: #e7f2ff;
+    }
+    input:focus {
+      outline: none !important;
+      border: 1px solid var(--yellow);
+      box-shadow: 0 0 10px var(--background);
+    }
+
+    input.is-invalid {
+      border: 1px solid red;
+      box-shadow: 0 0 10px var(--background);
+    }
+  }
+
+  button {
+    display: grid;
+    padding: 10px;
+    width: 150px;
+    background-color: var(--blue);
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 10px;
+    font-family: poppins;
+    font-size: torem(18);
+    color: var(--white);
+  }
+}
+
+@media (max-width: 550px) {
+  .telefone,
+  .email,
+  .profissao,
+  .nascimento {
+    grid-column: 1 / -1;
+  }
+}

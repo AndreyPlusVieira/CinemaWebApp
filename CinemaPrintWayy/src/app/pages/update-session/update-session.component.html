@@ -1,0 +1,40 @@
+<form [formGroup]="form">
+  <div class="container form">
+    <div class="form-individual title">
+      <label for="StartTime">Dia e horário da sessão.</label>
+      <input type="datetime-local" id="StartTime" formControlName="StartTime" [ngModel]="request.startTime | date" (ngModelChange)="request.startTime=$event">
+    </div>
+    <div class="form-individual description">
+      <label>Entrada</label>
+      <input type="number" formControlName="EntryValue" [(ngModel)]="request.entryValue">
+    </div>
+    <div class="form-individual description">
+      <label>Sala Id</label>
+      <input type="number" formControlName="RoomId" [(ngModel)]="request.roomsId">
+    </div>
+    <div class="form-individual description">
+      <label>Filme Id</label>
+      <input type="number" formControlName="MovieId" [(ngModel)]="request.movieId">
+    </div>
+
+    <div class="radio">
+      <p>Animação</p>
+      <input id="radio1" type="radio" value="2D" name="animation" formControlName="animation" [(ngModel)]="request.animationType">
+      <label for="radio1">2D</label>
+      <input id="radio2" type="radio" value="3D" name="animation" formControlName="animation">
+      <label for="radio2">3D</label>
+    </div>
+
+    <div class="radio">
+      <p>Audio</p>
+      <input id="radio3" type="radio" value="Original" name="Audio" formControlName="Audio" [(ngModel)]="request.audioType">
+      <label for="radio3">Original</label>
+      <input id="radio4" type="radio" value="Legendado" name="Audio" formControlName="Audio">
+      <label for="radio4">Legendado</label>
+    </div>
+
+    <button routerLink="/sessions" (click)="update()">ATUALIZAR</button>
+
+    <a routerLink="/sessions" class="back">Voltar</a>
+  </div>
+</form>
