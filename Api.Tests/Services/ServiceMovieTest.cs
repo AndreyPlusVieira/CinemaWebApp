@@ -15,7 +15,7 @@ public class ServiceMovieTest
     {
         _Imovie = Substitute.For<IMovie>();
         _serviceMovie = new ServiceMovie(_Imovie);
-        _movie = new Movie(2, "Title", "Description", "image", 120, true);
+        _movie = new Movie(2, "title", "Description", "image", 120, true);
     }
 
     [Fact]
@@ -35,7 +35,7 @@ public class ServiceMovieTest
     }
 
     [Fact]
-    public async Task AddMovie_WhithValidMovie_Returnsnull()
+    public async Task AddMovie_WhithInValidMovie_Returnsnull()
     {
         // Arrange
         var movie = new Movie(2, "Title", "Description", "image", 120, true);
@@ -145,27 +145,8 @@ public class ServiceMovieTest
         Assert.Null(result);
     }
 
-    [Fact]
-    public async Task UpdateMovie_WhithRepeatedTitleUpperCase_ReturnsNull()
-    {
-        // Arrange
-        var movie = new Movie(2, "Title Two", "Description", "image", 120, true);
+  
 
-        var id = 3;
-
-        _Imovie.GetEntityById(id).Returns(_movie);
-        _Imovie.GetMovieTitle(movie).Returns("title two");
-
-        _Imovie.Update(movie).Returns(Task.FromResult(movie));
-
-
-
-        // Act
-        var result = await _serviceMovie.UpdateMovie(movie, id);
-
-        // Assert
-        Assert.Null(result);
-    }
 
 
     [Fact]

@@ -22,6 +22,10 @@ export class UpdateMovieComponent implements OnInit {
     active: true,
   };
 
+  get f(): any {
+    return this.form.controls;
+  }
+
   constructor(
     private fb: FormBuilder,
     private data: DataService,

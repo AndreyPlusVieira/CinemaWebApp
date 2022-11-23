@@ -2,18 +2,27 @@
   <div class="container form">
     <div class="form-individual title">
       <label>Titulo</label>
-      <input [(ngModel)]="request.title" type="text" formControlName="Title" name="Title">
+      <input [(ngModel)]="request.title" type="text" formControlName="Title" placeholder="Qual o titulo do filme?" name="Title" [ngClass]="{'is-invalid': f.Title.errors && f.Title.touched}">
+      <div class="invalid-information" *ngIf="f.Title.errors && f.Title.touched">
+        <p>O titulo é obrigatório.</p>
+      </div>
     </div>
     <div class="form-individual description">
       <label>Descrição</label>
-      <input [(ngModel)]="request.description" type="text" formControlName="Description" name="Description">
+      <input [(ngModel)]="request.description" type="text" formControlName="Description" placeholder="Qual a descrição deste filme?" name="Description" [ngClass]="{'is-invalid': f.Description.errors && f.Description.touched}">
+      <div class="invalid-information" *ngIf="f.Description.errors && f.Description.touched">
+        <p>A descrição é obrigatória.</p>
+      </div>
     </div>
     <div class="form-individual duration">
-      <label>Duração</label>
-      <input [(ngModel)]="request.duration" type="number" formControlName="Duration" name="Duration">
+      <label>Duração (min)</label>
+      <input [(ngModel)]="request.duration" type="number" formControlName="Duration" name="Duration" placeholder="Duração do filme em minutos" [ngClass]="{'is-invalid': f.Duration.errors && f.Duration.touched}">
+      <div class="invalid-information" *ngIf="f.Duration.errors && f.Duration.touched">
+        <p>A duração é obrigatória.</p>
+      </div>
     </div>
 
-    <button (click)="save()">GRAVAR</button>
+    <button [disabled]="!form.valid" (click)="save()">GRAVAR</button>
 
     <a routerLink="/movies" class="back">Voltar</a>
   </div>

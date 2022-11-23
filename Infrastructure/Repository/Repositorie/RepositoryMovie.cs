@@ -19,7 +19,12 @@ namespace Infrastructure.Repository.Repositorie
         {
             using (var context = new ContextBase(_OptionsBuilder))
             {
-                return await context.Movies.Where(x => x.Title.ToLower().Trim() == movie.Title.ToLower().Trim()).Select(x => x.Title).FirstOrDefaultAsync();
+                var result = await context.Movies.Where(x => x.Title.ToLower().Trim() == movie.Title.ToLower().Trim()).Select(x => x.Title).FirstOrDefaultAsync();
+
+                if (result == null)
+                    return null;
+
+                return result;
             }
         }
 

@@ -2,19 +2,32 @@
   <div class="container form">
     <div class="form-individual title">
       <label for="StartTime">Dia e horário da sessão.</label>
-      <input class="is-invalid" [(ngModel)]="request.startTime" type="datetime-local" id="startTime" formControlName="StartTime" [ngClass]="{'is-invalid': f.StartTime.errors && f.StartTime.touched}">
+      <input class="is-invalid" (ngModel)="request.startTime" type="datetime-local" id="startTime" formControlName="StartTime" [ngClass]="{'is-invalid': f.StartTime.errors && f.StartTime.touched}">
+      <div class="invalid-information" *ngIf="f.StartTime.errors && f.StartTime.touched">
+        <p>Uma data é obrigatório.</p>
+      </div>
     </div>
     <div class="form-individual description">
       <label>Entrada</label>
-      <input class="is-invalid" [(ngModel)]="request.entryValue" type="number" formControlName="EntryValue" [ngClass]="{'is-invalid': f.EntryValue.errors && f.EntryValue.touched}">
+      <input class="is-invalid" (ngModel)="request.entryValue" placeholder="00 R$" type="number" formControlName="EntryValue" [ngClass]="{'is-invalid': f.EntryValue.errors && f.EntryValue.touched}">
+      <div class="invalid-information" *ngIf="f.EntryValue.errors && f.EntryValue.touched">
+        <p>Valor da entrada obrigatório.</p>
+      </div>
     </div>
     <div class="form-individual description">
       <label>Sala Id</label>
-      <input class="is-invalid" [(ngModel)]="request.roomsId" type="number" formControlName="RoomId" [ngClass]="{'is-invalid': f.RoomId.errors && f.RoomId.touched}">
+      <input class="is-invalid" (ngModel)="request.roomsId" placeholder="Qual o Id da sala desejada?" type="number" formControlName="RoomId" [ngClass]="{'is-invalid': f.RoomId.errors && f.RoomId.touched}">
+      <div class="invalid-information" *ngIf="f.RoomId.errors && f.RoomId.touched">
+        <p>Escolha uma sala para a sessão.</p>
+      </div>
+
     </div>
     <div class="form-individual description">
       <label>Filme Id</label>
-      <input class="is-invalid" [(ngModel)]="request.movieId" type="number" formControlName="MovieId" [ngClass]="{'is-invalid': f.MovieId.errors && f.MovieId.touched}">
+      <input class="is-invalid" (ngModel)="request.movieId" placeholder="Qual o Id do filme desejada?" type="number" formControlName="MovieId" [ngClass]="{'is-invalid': f.MovieId.errors && f.MovieId.touched}">
+      <div class="invalid-information" *ngIf="f.MovieId.errors && f.MovieId.touched">
+        <p>Escolha um filme para a sessão.</p>
+      </div>
     </div>
 
     <div class="radio">
@@ -33,7 +46,7 @@
       <label for="radio4">Dublado</label>
     </div>
 
-    <button type="button" (click)="save()">GRAVAR</button>
+    <button type="button" button [disabled]="!form.valid" (click)="save()">GRAVAR</button>
 
     <a routerLink="/sessions" class="back">Voltar</a>
   </div>

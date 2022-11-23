@@ -96,3 +96,15 @@ input.is-invalid {
   border: 1px solid red;
   box-shadow: 0 0 10px var(--background);
 }
+
+.invalid-information {
+  color: red;
+  margin-top: 10px;
+  font-style: italic;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  cursor: none;
+}

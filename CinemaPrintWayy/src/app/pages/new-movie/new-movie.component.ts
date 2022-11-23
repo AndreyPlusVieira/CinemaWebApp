@@ -22,9 +22,13 @@ export class NewMovieComponent implements OnInit {
     title: '',
     description: '',
     image: '',
-    duration: 1,
+    duration: 0,
     active: true,
   };
+
+  get f(): any {
+    return this.form.controls;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -48,7 +52,7 @@ export class NewMovieComponent implements OnInit {
     this.form = this.fb.group({
       Title: ['', [Validators.required]],
       Description: ['', [Validators.required]],
-      Duration: ['', [Validators.required]],
+      Duration: ['', [Validators.required, Validators.min(1)]],
     });
   }
 }
