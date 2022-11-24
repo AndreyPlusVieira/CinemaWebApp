@@ -266,6 +266,12 @@ namespace Infrastructure.Migrations
                 name: "IX_TB_SESSION_RoomsId",
                 table: "TB_SESSION",
                 column: "RoomsId");
+
+            migrationBuilder.Sql("INSERT INTO TB_ROOMS (Name, Seats) VALUES('Sala 1', 50)");
+
+            migrationBuilder.Sql("INSERT INTO TB_ROOMS (Name, Seats) VALUES('Sala 2', 80)");
+
+            migrationBuilder.Sql("INSERT INTO TB_ROOMS (Name, Seats) VALUES('Sala 3', 120)");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

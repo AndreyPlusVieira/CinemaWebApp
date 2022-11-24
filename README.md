@@ -1,16 +1,15 @@
-
 # CINEMA WEB APPLICATION
 
 Um projeto criado para controle de filmes e sessões de um cinema.
+
 ## Funcionalidades
 
 - Login com autenticação JWt.
 - Cadastrar, editar e remover filmes.
 - Visualização de salas.
 - Cadastrar e remover sessões.
-- Sessões vinculadas aos filmes. 
+- Sessões vinculadas aos filmes.
 - Upload de Imagens.
-
 
 ## Instalação
 
@@ -31,7 +30,6 @@ Instale as dependências
 ```bash
   npm install
 ```
-
 
 ### Configurando Banco de dados SQL Server
 
@@ -71,7 +69,6 @@ Na pasta raiz vamos para a pasta Infrastructure
 cd Infrastructure
 ```
 
-
 abrir o terminal e executar o comando
 
 ```bash
@@ -80,21 +77,26 @@ dotnet ef database update
 
 ## Configurando e Rodando localmente
 
-Vamos abrir o terminal na pasta da API 
+Vamos abrir o terminal na pasta da API
 
 ```bash
   cd WebAPI
 ```
+
 e vamos rodar a aplicação com o comando
+
 ```bash
   dotnet run
 ```
 
-entramos no endereço 
+entramos no endereço
+
 ```bash
   https://localhost:7116/swagger/index.html
 ```
+
 Dentro da API vamos na parte de USERS e utilizaremos o caminho /api/AddUserIdentity
+
 ```bash
 {
 "email": "Usuário Desejado",
@@ -103,21 +105,20 @@ Dentro da API vamos na parte de USERS e utilizaremos o caminho /api/AddUserIdent
 ```
 
 Na raiz do projeto vamos para a pasta CinemaPrintWayy no terminal
+
 ```bash
   cd CinemaPrintWayy
 ```
 
 Utilizaremos o comando
+
 ```bash
   ng s -o
 ```
 
 Agora utilizando o usuario que criamos estamos aptos a navegar na aplicação.
 
-
 ## Autores
 
-- [@AndreyPlusVieira](https://github.com/AndreyPlusVieira) (github)
-- [@andrey-vieira](https://www.linkedin.com/in/andrey-vieira/) (linkedin)
-
-
+- [@AndreyPlusVieira](https://github.com/AndreyPlusVieira) (github).
+- [@andrey-vieira](https://www.linkedin.com/in/andrey-vieira/) (linkedin).
