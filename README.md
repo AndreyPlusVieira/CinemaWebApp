@@ -63,10 +63,10 @@ no Metodo GetConnectionString(), tambem vamos colocar a Conexão.
         }
 ```
 
-Na pasta raiz vamos para a pasta Infrastructure
+Na pasta raiz vamos para a pasta WebAPI
 
 ```bash
-cd Infrastructure
+cd WebAPI
 ```
 
 abrir o terminal e executar o comando
