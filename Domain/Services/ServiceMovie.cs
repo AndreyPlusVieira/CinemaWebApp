@@ -21,13 +21,10 @@ namespace Domain.Services
             }
 
             if (await _IMovie.CheckIfMovieTitleExists(movie))
-                return null;           
-
-            if(movie.Title.Trim() == "")
                 return null;
 
-
-
+            if (movie.Title.Trim() == "")
+                return null;
             await _IMovie.Add(movie);
             return movie;
         }

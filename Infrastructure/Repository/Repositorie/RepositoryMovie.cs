@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces;
+﻿using System.Text.RegularExpressions;
+using Domain.Interfaces;
 using Entities.Entities;
 using Infrastructure.Configuration;
 using Infrastructure.Repository.Generics;
@@ -19,9 +20,13 @@ namespace Infrastructure.Repository.Repositorie
         {
             using (var context = new ContextBase(_OptionsBuilder))
             {
-                var result = await context.Movies.Where(x => x.Title.ToLower().Trim() == movie.Title.ToLower().Trim()).Select(x => x.Title).FirstOrDefaultAsync();
+                var movieTitleWithoutSpaces = Regex.Replace(movie.Title, @"\s", "").ToLower().Trim();
 
-                if (result != null)
+                var listOfTitles = await context.Movies.Where(x => x.Title != null).Select(x => x.Title).ToListAsync();
+
+                var results = ComparableTitle(movieTitleWithoutSpaces, listOfTitles);
+
+                if (results)
                     return true;
 
                 return false;
@@ -34,6 +39,19 @@ namespace Infrastructure.Repository.Repositorie
             {
                 return await context.Sessions.Where(x => x.MovieId == movie.Id).ToListAsync();
             }
+        }
+
+        public bool ComparableTitle(string title, List<string> list)
+        {
+
+            foreach (var item in list)
+            {
+                if (Regex.Replace(item, @"\s", "").ToLower().Trim() == title)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
