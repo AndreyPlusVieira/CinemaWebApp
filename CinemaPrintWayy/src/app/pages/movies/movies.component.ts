@@ -39,6 +39,7 @@ export class MoviesComponent implements OnInit {
 
   ngOnInit(): void {
     this.recoverId();
+
     this.getMovies();
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestSession } from 'src/app/models/Session';
@@ -29,6 +29,7 @@ export class NewSessionComponent implements OnInit {
   }
 
   constructor(
+    private cd: ChangeDetectorRef,
     private fb: FormBuilder,
     private data: DataService,
     private route: Router
@@ -36,6 +37,9 @@ export class NewSessionComponent implements OnInit {
 
   ngOnInit(): void {
     this.Validation();
+  }
+  ngAfterViewChecked() {
+    this.cd.detectChanges();
   }
 
   save() {
@@ -45,7 +49,9 @@ export class NewSessionComponent implements OnInit {
       if (res.statusCode === 400) alert(res.value);
       else alert(`Criado com Sucesso`);
     });
-    this.route.navigate(['/sessions']);
+    this.route.navigate(['/sessions']).then((nav) => {
+      window.location.reload();
+    });
   }
 
   public Validation(): void {

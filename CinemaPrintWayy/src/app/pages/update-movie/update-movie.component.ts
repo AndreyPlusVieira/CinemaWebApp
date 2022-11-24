@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -27,6 +27,7 @@ export class UpdateMovieComponent implements OnInit {
   }
 
   constructor(
+    private cd: ChangeDetectorRef,
     private fb: FormBuilder,
     private data: DataService,
     private route: Router,
@@ -36,6 +37,9 @@ export class UpdateMovieComponent implements OnInit {
   ngOnInit(): void {
     this.Validation();
     this.findId();
+  }
+  ngAfterViewChecked() {
+    this.cd.detectChanges();
   }
 
   findId() {
@@ -65,6 +69,9 @@ export class UpdateMovieComponent implements OnInit {
     this.data.updateMovie(this.id, this.request).subscribe((res) => {
       if (res.statusCode === 400) alert(res.value);
       else alert(`Atualizado`);
+    });
+    this.route.navigate([`/movie/${this.id}`]).then((nav) => {
+      window.location.reload();
     });
   }
 }

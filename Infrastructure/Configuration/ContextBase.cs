@@ -24,7 +24,7 @@ namespace Infrastructure.Configuration
 
         public string GetConnectionString()
         {
-            return "Server=localhost,1433;Database=testando;User ID=sa;Password=1q2w3e4r@#$;";
+            return "Server=localhost,1433;Database=CinemaBancoDados;User ID=sa;Password=1q2w3e4r@#$;";
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

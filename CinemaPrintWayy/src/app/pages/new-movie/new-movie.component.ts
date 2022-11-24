@@ -45,7 +45,9 @@ export class NewMovieComponent implements OnInit {
       if (res.statusCode === 400) alert(res.value.toString());
       else alert(`Criado com Sucesso`);
     });
-    this.route.navigate(['/movies']);
+    this.route.navigate(['/movies']).then((nav) => {
+      window.location.reload();
+    });
   }
 
   public Validation(): void {

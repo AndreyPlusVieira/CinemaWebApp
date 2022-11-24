@@ -36,6 +36,8 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
+    console.log('dado');
+
     this.data.authenticate(this.form.value).subscribe(
       (dado: any) => {
         this.setUser(this.form.value.email, dado);
@@ -48,7 +50,8 @@ export class LoginComponent implements OnInit {
         }
       },
       (err) => {
-        console.log(err);
+        alert(`Usuario ou senha incorreto`);
+        window.location.reload();
       }
     );
   }
