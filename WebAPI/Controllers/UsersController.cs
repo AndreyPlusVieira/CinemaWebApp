@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
             }
             else
             {
-                return Unauthorized();
+                return BadRequest("falhou");
             }
         }
 
@@ -73,8 +73,7 @@ namespace WebAPI.Controllers
             {
                 UserName = login.email,
                 Email = login.email,
-                //CPF = login.cpf,
-                Tipo = TipoUsuario.Comum,
+                Tipo = TipoUsuario.Administrador,
             };
 
             var result = await _userManager.CreateAsync(user, login.senha);
