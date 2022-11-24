@@ -46,7 +46,7 @@ namespace WebAPI.Controllers
             var result = await _IServiceMovie.UpdateMovie(movieMap, id);
 
             if (result == null)
-                return Results.BadRequest("Não foi possível atualizar.");
+                return Results.BadRequest("Titulo ja existe");
 
             return Results.Ok(movieMap);
         }

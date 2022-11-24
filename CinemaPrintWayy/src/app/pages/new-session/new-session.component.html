@@ -16,18 +16,17 @@
     </div>
     <div class="form-individual description">
       <label>Sala Id</label>
-      <input class="is-invalid" [(ngModel)]="request.roomsId" placeholder="Qual o Id da sala desejada?" type="number" formControlName="RoomId" [ngClass]="{'is-invalid': f.RoomId.errors && f.RoomId.touched}">
-      <div class="invalid-information" *ngIf="f.RoomId.errors && f.RoomId.touched">
-        <p>Escolha uma sala para a sessão.</p>
-      </div>
+      <select class="is-invalid" [(ngModel)]="request.roomsId" formControlName="RoomId">
+        <option [value]="item.id" *ngFor="let item of rooms?.value">{{item.name}}</option>
 
+      </select>
     </div>
     <div class="form-individual description">
       <label>Filme Id</label>
-      <input class="is-invalid" [(ngModel)]="request.movieId" placeholder="Qual o Id do filme desejada?" type="number" formControlName="MovieId" [ngClass]="{'is-invalid': f.MovieId.errors && f.MovieId.touched}">
-      <div class="invalid-information" *ngIf="f.MovieId.errors && f.MovieId.touched">
-        <p>Escolha um filme para a sessão.</p>
-      </div>
+      <select class="is-invalid" [(ngModel)]="request.movieId" formControlName="MovieId">
+        <option [value]="item.id" *ngFor="let item of movie?.value">{{item.title}}</option>
+      </select>
+
     </div>
 
     <div class="radio">
