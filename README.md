@@ -65,23 +65,17 @@ no Metodo GetConnectionString(), tambem vamos colocar a Conexão.
         }
 ```
 
-As salas da aplicação foram colocadas manualmente no banco com o seguinte cod.
+Na pasta raiz vamos para a pasta Infrastructure
 
 ```bash
-INSERT INTO [TB_ROOMS]
-    ([Name], [Seats])
-VALUES
-    ('Sala 1', 50);
+cd Infrastructure
+```
 
-INSERT INTO [TB_ROOMS]
-    ([Name], [Seats])
-VALUES 
-    ('Sala 2', 80);
 
- INSERT INTO [TB_ROOMS]
-    ([Name], [Seats])
- VALUES
-    ('Sala 3', 120);
+abrir o terminal e executar o comando
+
+```bash
+dotnet ef database update
 ```
 
 ## Configurando e Rodando localmente
