@@ -20,10 +20,13 @@ namespace Domain.Services
                 return null;
             }
 
-            var title = await _IMovie.GetMovieTitle(movie);
+            if (await _IMovie.CheckIfMovieTitleExists(movie))
+                return null;           
 
-            if (movie.Title == title)
+            if(movie.Title.Trim() == "")
                 return null;
+
+
 
             await _IMovie.Add(movie);
             return movie;
@@ -65,9 +68,9 @@ namespace Domain.Services
         public async Task<Movie> UpdateMovie(Movie movie, int id)
         {
             var movieSearch = _IMovie.GetEntityById(id).Result;
-            var title = await _IMovie.GetMovieTitle(movie);
+            var check = await _IMovie.CheckIfMovieTitleExists(movie);
 
-            if (movie.Title == title && movieSearch.Title != title)
+            if (check == true && movieSearch.Title != movie.Title)
                 return null;
 
             movie.Id = id;

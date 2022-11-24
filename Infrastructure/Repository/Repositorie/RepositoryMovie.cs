@@ -15,16 +15,16 @@ namespace Infrastructure.Repository.Repositorie
             _OptionsBuilder = new DbContextOptions<ContextBase>();
         }
 
-        public async Task<string> GetMovieTitle(Movie movie)
+        public async Task<bool> CheckIfMovieTitleExists(Movie movie)
         {
             using (var context = new ContextBase(_OptionsBuilder))
             {
                 var result = await context.Movies.Where(x => x.Title.ToLower().Trim() == movie.Title.ToLower().Trim()).Select(x => x.Title).FirstOrDefaultAsync();
 
-                if (result == null)
-                    return null;
+                if (result != null)
+                    return true;
 
-                return result;
+                return false;
             }
         }
 

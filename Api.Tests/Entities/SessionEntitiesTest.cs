@@ -4,9 +4,9 @@ namespace Api.Tests.Entities
 {
     public class SessionEntitiesTest
     {
-        private readonly DateTime Date = DateTime.Now;
-        private readonly Session Session = new Session(1, DateTime.Now, DateTime.Now.AddHours(2), 10, "2d", "original", 1, 1);
-        private readonly Session SessionTwo = new Session(2, DateTime.Now.AddHours(2), DateTime.Now.AddHours(4), 10, "2d", "original", 1, 1);
+        private readonly DateTime date = DateTime.Now;
+        private readonly Session session = new Session(1, DateTime.Now, DateTime.Now.AddHours(2), 10, "2d", "original", 1, 1);
+        private readonly Session sessionTwo = new Session(2, DateTime.Now.AddHours(2), DateTime.Now.AddHours(4), 10, "2d", "original", 1, 1);
         private readonly List<Session> list = new List<Session>();
 
         [Fact]
@@ -14,9 +14,9 @@ namespace Api.Tests.Entities
         {
             // Arrange
 
-            list.Add(Session);
-            list.Add(SessionTwo);
-            var SessionTimeClash = new Session(3, Date.AddHours(1), Date.AddHours(3), 10, "2d", "original", 1, 1);
+            list.Add(session);
+            list.Add(sessionTwo);
+            var SessionTimeClash = new Session(3, date.AddHours(1), date.AddHours(3), 10, "2d", "original", 1, 1);
 
             // Act
             var result = SessionTimeClash.CheckSessions(list, SessionTimeClash);
@@ -30,9 +30,9 @@ namespace Api.Tests.Entities
         {
             // Arrange
 
-            list.Add(Session);
-            list.Add(SessionTwo);
-            var SessionTimeClash = new Session(3, Date.AddHours(5), Date.AddHours(6), 10, "2d", "original", 1, 1);
+            list.Add(session);
+            list.Add(sessionTwo);
+            var SessionTimeClash = new Session(3, date.AddHours(5), date.AddHours(6), 10, "2d", "original", 1, 1);
 
             // Act
             var result = SessionTimeClash.CheckSessions(list, SessionTimeClash);
@@ -46,7 +46,7 @@ namespace Api.Tests.Entities
         {
             // Arrange
 
-            var Session = new Session(1, Date.AddDays(2), Date.AddDays(2).AddHours(2), 10, "2d", "original", 1, 1);
+            var Session = new Session(1, date.AddDays(2), date.AddDays(2).AddHours(2), 10, "2d", "original", 1, 1);
 
             // Act
             var result = Session.CheckForDelete(Session);
@@ -59,7 +59,7 @@ namespace Api.Tests.Entities
         {
             // Arrange
 
-            var Session = new Session(1, Date.AddDays(12), Date.AddDays(12).AddHours(2), 10, "2d", "original", 1, 1);
+            var Session = new Session(1, date.AddDays(12), date.AddDays(12).AddHours(2), 10, "2d", "original", 1, 1);
 
             // Act
             var result = Session.CheckForDelete(Session);

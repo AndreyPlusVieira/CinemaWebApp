@@ -39,6 +39,8 @@ export class NewSessionComponent implements OnInit {
   }
 
   save() {
+    console.log(this.request);
+
     this.data.createSession(this.request).subscribe((res) => {
       if (res.statusCode === 400) alert(res.value);
       else alert(`Criado com Sucesso`);

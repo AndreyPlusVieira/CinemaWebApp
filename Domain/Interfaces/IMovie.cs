@@ -11,7 +11,7 @@ namespace Domain.Interfaces
 {
     public interface IMovie : IGeneric<Movie>
     {
-        Task<string> GetMovieTitle(Movie movie);
+        Task<bool> CheckIfMovieTitleExists(Movie movie);
 
         Task<List<Session>> ListSessionsByMovie(Movie movie);
 

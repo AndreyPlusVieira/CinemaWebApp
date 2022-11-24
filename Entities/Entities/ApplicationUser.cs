@@ -13,7 +13,7 @@ namespace Entities.Entities
     {
 
 
-        [Column("USR_TIPO")]
+        [Column("UserType")]
         public TipoUsuario? Tipo { get; set; }
     }
 }

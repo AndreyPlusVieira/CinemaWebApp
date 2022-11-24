@@ -24,7 +24,7 @@ public class ServiceMovieTest
         // Arrange
         var movie = new Movie(2, "Title Two", "Description", "image", 120, true);
 
-        _Imovie.GetMovieTitle(movie).Returns(_movie.Title);
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(false);
         _Imovie.Add(movie).Returns(Task.FromResult(movie));
 
         // Act
@@ -40,7 +40,7 @@ public class ServiceMovieTest
         // Arrange
         var movie = new Movie(2, "Title", "Description", "image", 120, true);
 
-        _Imovie.GetMovieTitle(movie).Returns(_movie.Title);
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(true);
         _Imovie.Add(movie).Returns(Task.FromResult(movie));
 
         // Act
@@ -57,7 +57,7 @@ public class ServiceMovieTest
         var movie = new Movie(2, "Title", "Description", "image", 120, true);
         var movieTwo = new Movie(2, "title", "Description", "image", 120, true);
 
-        _Imovie.GetMovieTitle(movie).Returns(movieTwo.Title);
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(true);
         _Imovie.Add(movie).Returns(Task.FromResult(movie));
 
         // Act
@@ -74,7 +74,7 @@ public class ServiceMovieTest
         var movie = new Movie(2, "Title One", "Description", "image", 120, true);
         var movieTwo = new Movie(2, "title one", "Description", "image", 120, true);
 
-        _Imovie.GetMovieTitle(movie).Returns(movieTwo.Title);
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(true);
         _Imovie.Add(movie).Returns(Task.FromResult(movie));
 
         // Act
@@ -112,7 +112,7 @@ public class ServiceMovieTest
         var id = 3;
 
         _Imovie.GetEntityById(id).Returns(movie);
-        _Imovie.GetMovieTitle(movie).Returns(movie.Title);
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(false);
 
         _Imovie.Update(movie).Returns(Task.FromResult(movie));
 
@@ -132,7 +132,7 @@ public class ServiceMovieTest
         var id = 3;
 
         _Imovie.GetEntityById(id).Returns(_movie);
-        _Imovie.GetMovieTitle(movie).Returns("Title Two");
+        _Imovie.CheckIfMovieTitleExists(movie).Returns(true);
 
         _Imovie.Update(movie).Returns(Task.FromResult(movie));
 
